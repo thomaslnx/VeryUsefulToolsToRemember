@@ -85,6 +85,7 @@ function ToolsList() {
     // console.log(results);
     console.log(term);
     console.log(results2);
+    console.log(search);
   };
 
   /*
@@ -160,27 +161,31 @@ function ToolsList() {
         {toolList && toolList.length > 0 ? (
           toolList.map((tools, index) => (
             <ul key={index}>
-              {tools.map((item) => (
-                /* Fazer verificacao se o input de search estiver vazio, se estiver
-                 *** renderiza a lista armazenada, se não renderiza a ferramenta que
-                 *** estiver dentro do input de search.
-                 */
+              {search === '' ? (
+                tools.map((item) => (
+                  /* Fazer verificacao se o input de search estiver vazio, se estiver
+                   *** renderiza a lista armazenada, se não renderiza a ferramenta que
+                   *** estiver dentro do input de search.
+                   */
 
-                <li key={item.id}>
-                  <span className="toolTitle">
-                    <a href={item.link}>{item.title}</a>
-                    <button type="button" onClick={() => removeTool(item.id)}>
-                      <FaTimes />
-                      remove
-                    </button>
-                  </span>
-                  <span className="toolDescription">{item.description}</span>
+                  <li key={item.id}>
+                    <span className="toolTitle">
+                      <a href={item.link}>{item.title}</a>
+                      <button type="button" onClick={() => removeTool(item.id)}>
+                        <FaTimes />
+                        remove
+                      </button>
+                    </span>
+                    <span className="toolDescription">{item.description}</span>
 
-                  <span match="match" className="toolTags">
-                    {item.tags.map((item) => `#${item}  `)}
-                  </span>
-                </li>
-              ))}
+                    <span match="match" className="toolTags">
+                      {item.tags.map((item) => `#${item}  `)}
+                    </span>
+                  </li>
+                ))
+              ) : (
+                <h1>{search}</h1>
+              )}
             </ul>
           ))
         ) : (
