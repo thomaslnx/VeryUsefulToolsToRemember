@@ -9,6 +9,7 @@ import { Wrapper, FormContainer, ToolList, LightBoxWrapper } from './styles';
 function ToolsList() {
   const [toolList, setToolList] = useState([]);
   const [search, setSearch] = useState('');
+  const [filtered, setFiltered] = useState([]);
   const [check, setCheck] = useState(false);
 
   useEffect(() => {
@@ -55,7 +56,7 @@ function ToolsList() {
       // Refatorar esse trecho de codigo
       'Quer mesmo remover essa ferramenta?'
     );
-    if (confirmRemoveTool == true) {
+    if (confirmRemoveTool === true) {
       api.delete(`/tools/${id}`);
     }
 
@@ -64,28 +65,52 @@ function ToolsList() {
 
   function handleCheck() {
     setCheck(true);
-    console.log(check);
   }
 
   /*
    *** Search tool by tag
    */
   const searchByTag = async (e) => {
-    const term = e.target.value;
+    const searchInput = e.target.value;
+
+    let currentList = [];
+    let newList = [];
     setSearch(e.target.value);
-    const tagList = await api.get('/tools');
 
-    // const results = tagList.data.map((item) => `${item.tags}`); // funcao que mais parece ser apropriada para realizar a busca.
+    // CODIGO FUNCIONAL
+    if (searchInput !== '') {
+      currentList = await api.get('/tools');
 
-    // Funcao que esta funcionando
-    const results2 = tagList.data.map((item) =>
-      item.tags.filter((a) => a.includes(term))
-    );
+      newList = currentList.data
+        .map((tag) => tag.tags)
+        .map((item) =>
+          item.filter((tool) => {
+            const lc = tool.toLowerCase();
+            console.log(searchInput);
+            const filter = searchInput.toLowerCase();
+            return lc.includes(filter);
+          })
+        );
 
-    // console.log(results);
-    console.log(term);
-    console.log(results2);
-    console.log(search);
+      setFiltered(newList);
+
+      console.log(newList);
+    }
+
+    // CÓDIGO ANTERIOR
+    // const term = e.target.value;
+
+    // setSearch(e.target.value);
+    // const tagList = await api.get('/tools');
+
+    // // Funcao que esta funcionando
+    // const results2 = tagList.data.map((item) =>
+    //   item.tags.filter((a) => a.includes(term))
+    // );
+
+    // console.log(term);
+    // console.log(results2);
+    // console.log(search);
   };
 
   /*
@@ -161,31 +186,33 @@ function ToolsList() {
         {toolList && toolList.length > 0 ? (
           toolList.map((tools, index) => (
             <ul key={index}>
-              {search === '' ? (
-                tools.map((item) => (
-                  /* Fazer verificacao se o input de search estiver vazio, se estiver
+              {search === ''
+                ? /* Fazer verificacao se o input de search estiver vazio, se estiver
                    *** renderiza a lista armazenada, se não renderiza a ferramenta que
                    *** estiver dentro do input de search.
                    */
+                  tools.map((item) => (
+                    <li key={item.id}>
+                      <span className="toolTitle">
+                        <a href={item.link}>{item.title}</a>
+                        <button
+                          type="button"
+                          onClick={() => removeTool(item.id)}
+                        >
+                          <FaTimes />
+                          remove
+                        </button>
+                      </span>
+                      <span className="toolDescription">
+                        {item.description}
+                      </span>
 
-                  <li key={item.id}>
-                    <span className="toolTitle">
-                      <a href={item.link}>{item.title}</a>
-                      <button type="button" onClick={() => removeTool(item.id)}>
-                        <FaTimes />
-                        remove
-                      </button>
-                    </span>
-                    <span className="toolDescription">{item.description}</span>
-
-                    <span match="match" className="toolTags">
-                      {item.tags.map((item) => `#${item}  `)}
-                    </span>
-                  </li>
-                ))
-              ) : (
-                <h1>{search}</h1>
-              )}
+                      <span className="toolTags">
+                        {item.tags.map((item) => `#${item}  `)}
+                      </span>
+                    </li>
+                  ))
+                : filtered.map((item) => <h1>{filtered}</h1>)}
             </ul>
           ))
         ) : (
