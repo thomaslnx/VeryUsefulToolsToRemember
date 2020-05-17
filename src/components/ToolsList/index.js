@@ -85,32 +85,40 @@ function ToolsList() {
         .map((tag) => tag.tags)
         .map((item) =>
           item.filter((tool) => {
-            const lc = tool.toLowerCase();
-            console.log(searchInput);
+            const lowerCase = tool.toLowerCase();
             const filter = searchInput.toLowerCase();
-            return lc.includes(filter);
+            return lowerCase.includes(filter);
           })
         );
+    } else {
+      setFiltered(toolList);
+    }
+    const indexed = newList
+      .map((item) => item != 0)
+      .map((item) => item === true);
 
-      setFiltered(newList);
+    /**
+     * Retorna o indice do array que contém a tag pesquisada
+     ***/
+    function indexesOf(array, tool) {
+      let indexes = new Array();
 
-      console.log(newList);
+      for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array[i].length; j++) {
+          if (array[i].includes(tool)) {
+            indexes.push(i);
+          }
+        }
+      }
+      return indexes;
     }
 
-    // CÓDIGO ANTERIOR
-    // const term = e.target.value;
+    console.log(
+      'Valor do retorno da função indexesOf: ',
+      indexesOf(newList, searchInput)
+    );
 
-    // setSearch(e.target.value);
-    // const tagList = await api.get('/tools');
-
-    // // Funcao que esta funcionando
-    // const results2 = tagList.data.map((item) =>
-    //   item.tags.filter((a) => a.includes(term))
-    // );
-
-    // console.log(term);
-    // console.log(results2);
-    // console.log(search);
+    setFiltered(newList);
   };
 
   /*
