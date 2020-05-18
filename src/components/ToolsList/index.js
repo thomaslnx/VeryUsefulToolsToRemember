@@ -11,6 +11,7 @@ function ToolsList() {
   const [search, setSearch] = useState('');
   const [filtered, setFiltered] = useState([]);
   const [check, setCheck] = useState(false);
+  const [indice, setIndice] = useState([]);
 
   useEffect(() => {
     async function tools() {
@@ -93,23 +94,21 @@ function ToolsList() {
     } else {
       setFiltered(toolList);
     }
-    const indexed = newList
-      .map((item) => item != 0)
-      .map((item) => item === true);
 
     /**
      * Retorna o indice do array que contém a tag pesquisada
      ***/
-    function indexesOf(array, tool) {
+    function indexesOf(array, tag) {
       let indexes = new Array();
 
       for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array[i].length; j++) {
-          if (array[i].includes(tool)) {
+          if (array[i][j].includes(tag)) {
             indexes.push(i);
           }
         }
       }
+      setIndice(indexes);
       return indexes;
     }
 
@@ -195,11 +194,7 @@ function ToolsList() {
           toolList.map((tools, index) => (
             <ul key={index}>
               {search === ''
-                ? /* Fazer verificacao se o input de search estiver vazio, se estiver
-                   *** renderiza a lista armazenada, se não renderiza a ferramenta que
-                   *** estiver dentro do input de search.
-                   */
-                  tools.map((item) => (
+                ? tools.map((item) => (
                     <li key={item.id}>
                       <span className="toolTitle">
                         <a href={item.link}>{item.title}</a>
@@ -220,7 +215,60 @@ function ToolsList() {
                       </span>
                     </li>
                   ))
-                : filtered.map((item) => <h1>{filtered}</h1>)}
+                : toolList.map((item) => {
+                    // console.log(item[3]);
+                    // console.log('valor de indice: ', indice);
+                    // indice.map((i) => (
+                    //   <li key={item[i].id}>
+                    //     <span className="toolTitle">
+                    //       <a href={item[i].link}>{item[i].title}</a>
+                    //       <button
+                    //         type="button"
+                    //         onClick={() => removeTool(item[i].id)}
+                    //       >
+                    //         <FaTimes />
+                    //         remove
+                    //       </button>
+                    //     </span>
+                    //     <span className="toolDescription">
+                    //       {item[i].description}
+                    //     </span>
+
+                    //     <span className="toolTags">
+                    //       {item[i].tags.map((item) => `#${item}  `)}
+                    //     </span>
+                    //   </li>
+                    // ));
+                    for (let i = 0; i < indice.length; i++) {
+                      const control = indice[i];
+                      console.log('valor da variavel control: ', control);
+                      const mostra = () => (
+                        <li key={item[control].id}>
+                          <span className="toolTitle">
+                            <a href={item[control].link}>
+                              {item[control].title}
+                            </a>
+                            <button
+                              type="button"
+                              onClick={() => removeTool(item[control].id)}
+                            >
+                              <FaTimes />
+                              remove
+                            </button>
+                          </span>
+                          <span className="toolDescription">
+                            {item[control].description}
+                          </span>
+
+                          <span className="toolTags">
+                            {item[control].tags.map((item) => `#${item}  `)}
+                          </span>
+                        </li>
+                      );
+
+                      mostra();
+                    }
+                  })}
             </ul>
           ))
         ) : (
