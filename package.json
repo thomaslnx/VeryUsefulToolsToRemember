@@ -10,6 +10,7 @@
     "caniuse-lite": "1.0.30000974",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-highlight-words": "^0.16.0",
     "react-icons": "^3.10.0",
     "react-popupbox": "^2.0.8",
     "react-router-dom": "^5.1.2",

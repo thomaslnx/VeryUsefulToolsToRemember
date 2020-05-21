@@ -222,7 +222,8 @@ function ToolsList() {
                 </span>
 
                 <span className="toolTags">
-                  {toolList[0][idx].tags.map((item) => `#${item}  `)}
+                  {toolList[0][idx].tags.map((item) => `#${item}  `)} //colocar
+                  a estilização dentro desse map
                 </span>
               </li>
             </ul>
