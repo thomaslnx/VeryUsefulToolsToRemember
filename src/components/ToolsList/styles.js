@@ -20,30 +20,39 @@ export const FormContainer = styled.div`
 
     .input-container {
       padding: 0;
-
-      span {
-        color: #170c3a;
-      }
+      margin: 0;
 
       svg {
         position: relative;
         top: 2px;
         left: 11px;
       }
+
+      .search {
+        width: 200px;
+        padding: 5px 30px;
+        border: 1px solid #dedce1;
+        border-radius: 5px;
+        font-size: 20px;
+        margin-left: -15px;
+      }
+
+      .box {
+        position: relative;
+        top: 4px;
+        left: 10px;
+        height: 20px;
+        width: 20px;
+        background-color: #eee;
+      }
+
+      span {
+        color: #170c3a;
+        margin-left: 20px;
+      }
     }
 
-    .search {
-      width: 200px;
-      padding: 5px 30px;
-      border: 1px solid #dedce1;
-      border-radius: 5px;
-      font-size: 20px;
-      margin-left: -15px;
-    }
 
-    .boxcheck {
-      margin: 0 10px;
-    }
 
     button {
       width: 100px;

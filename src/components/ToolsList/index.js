@@ -16,7 +16,7 @@ function ToolsList() {
   const [toolList, setToolList] = useState([]);
   const [search, setSearch] = useState('');
   const [filtered, setFiltered] = useState([]);
-  const [check, setCheck] = useState(false);
+  const [check, setCheck] = useState(true);
   const [indice, setIndice] = useState([]);
 
   useEffect(() => {
@@ -71,7 +71,8 @@ function ToolsList() {
   }
 
   function handleCheck() {
-    setCheck(true);
+    setCheck(!check);
+    return console.log(check);
   }
 
   /*
@@ -176,12 +177,12 @@ function ToolsList() {
 
             <label htmlFor="searchtags">
               <input
-                onClick={handleCheck}
-                className="boxcheck"
+                onChange={handleCheck}
+                checked={check}
+                className="box"
                 type="checkbox"
-                id="searchtags"
               />
-              <span>search in tags only</span>
+              <span className="boxlabel">search in tags only</span>
             </label>
           </div>
           <button type="button" onClick={handleSubmit}>
@@ -212,7 +213,7 @@ function ToolsList() {
               </li>
             </ul>
           ))
-        ) : search !== '' ? (
+        ) : search !== '' && check === true ? (
           indice.map((idx) => (
             <ul>
               <li key={toolList[0][idx].id}>
@@ -243,6 +244,9 @@ function ToolsList() {
               </li>
             </ul>
           ))
+        ) : search !== '' && check === false ? (
+          (console.log('dentro do ternario: ', check),
+          (<h1>Busca por nome da ferramenta</h1>))
         ) : (
           <div className="empty">
             <span className="title">Lista de Ferramentas Vazia</span>
