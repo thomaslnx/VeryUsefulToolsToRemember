@@ -111,6 +111,9 @@ function ToolsList() {
       setIndice(indexes);
       return indexes;
     }
+
+    indexesOf(newList, searchInput);
+
     setFiltered(newList);
   };
 
@@ -222,8 +225,7 @@ function ToolsList() {
                 </span>
 
                 <span className="toolTags">
-                  {toolList[0][idx].tags.map((item) => `#${item}  `)} //colocar
-                  a estilização dentro desse map
+                  {toolList[0][idx].tags.map((item) => `#${item}  `)}
                 </span>
               </li>
             </ul>
