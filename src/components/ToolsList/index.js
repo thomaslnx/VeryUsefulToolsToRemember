@@ -4,7 +4,13 @@ import { PopupboxContainer, PopupboxManager } from 'react-popupbox';
 
 import api from '../../services/api';
 
-import { Wrapper, FormContainer, ToolList, LightBoxWrapper } from './styles';
+import {
+  Wrapper,
+  FormContainer,
+  ToolList,
+  LightBoxWrapper,
+  TagHighlighter,
+} from './styles';
 
 function ToolsList() {
   const [toolList, setToolList] = useState([]);
@@ -225,7 +231,15 @@ function ToolsList() {
                 </span>
 
                 <span className="toolTags">
-                  {toolList[0][idx].tags.map((item) => `#${item}  `)}
+                  {toolList[0][idx].tags.map((item) => (
+                    <TagHighlighter
+                      activeIndex={1}
+                      searchWords={[search]}
+                      textToHighlight={`#${item}  `}
+                      color="#fff"
+                      font_weight="bold"
+                    />
+                  ))}
                 </span>
               </li>
             </ul>

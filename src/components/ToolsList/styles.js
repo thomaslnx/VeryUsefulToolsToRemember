@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Highlighter from 'react-highlight-words';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -195,3 +196,5 @@ export const LightBoxWrapper = styled.div`
     }
   }
 `;
+
+export const TagHighlighter = styled(Highlighter)``;
