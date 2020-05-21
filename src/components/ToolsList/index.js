@@ -111,12 +111,6 @@ function ToolsList() {
       setIndice(indexes);
       return indexes;
     }
-
-    console.log(
-      'Valor do retorno da função indexesOf: ',
-      indexesOf(newList, searchInput)
-    );
-
     setFiltered(newList);
   };
 
@@ -190,84 +184,58 @@ function ToolsList() {
       </FormContainer>
 
       <ToolList>
-        {toolList.length > 0 && search === ''
-          ? toolList[0].map((tool) => (
-              <ul>
-                <li key={tool.id}>
-                  <span className="toolTitle">
-                    <a href={tool.link}>{tool.title}</a>
-                    <button type="button" onClick={() => removeTool(tool.id)}>
-                      <FaTimes />
-                      remove
-                    </button>
-                  </span>
-                  <span className="toolDescription">{tool.description}</span>
+        {toolList.length > 0 && search === '' ? (
+          toolList[0].map((tool) => (
+            <ul>
+              <li key={tool.id}>
+                <span className="toolTitle">
+                  <a href={tool.link}>{tool.title}</a>
+                  <button type="button" onClick={() => removeTool(tool.id)}>
+                    <FaTimes />
+                    remove
+                  </button>
+                </span>
+                <span className="toolDescription">{tool.description}</span>
 
-                  <span className="toolTags">
-                    {tool.tags.map((item) => `#${item}  `)}
-                  </span>
-                </li>
-              </ul>
-            ))
-          : search !== ''
-          ? indice.map((idx) => (
-              <ul>
-                <li key={toolList[0][idx].id}>
-                  <span className="toolTitle">
-                    <a href={toolList[0][idx].link}>{toolList[0][idx].title}</a>
-                    <button
-                      type="button"
-                      onClick={() => removeTool(toolList[0][idx].id)}
-                    >
-                      <FaTimes />
-                      remove
-                    </button>
-                  </span>
-                  <span className="toolDescription">
-                    {toolList[0][idx].description}
-                  </span>
+                <span className="toolTags">
+                  {tool.tags.map((item) => `#${item}  `)}
+                </span>
+              </li>
+            </ul>
+          ))
+        ) : search !== '' ? (
+          indice.map((idx) => (
+            <ul>
+              <li key={toolList[0][idx].id}>
+                <span className="toolTitle">
+                  <a href={toolList[0][idx].link}>{toolList[0][idx].title}</a>
+                  <button
+                    type="button"
+                    onClick={() => removeTool(toolList[0][idx].id)}
+                  >
+                    <FaTimes />
+                    remove
+                  </button>
+                </span>
+                <span className="toolDescription">
+                  {toolList[0][idx].description}
+                </span>
 
-                  <span className="toolTags">
-                    {toolList[0][idx].tags.map((item) => `#${item}  `)}
-                  </span>
-                </li>
-              </ul>
-            ))
-          : (console.log(toolList[0]),
-            (
-              <div className="empty">
-                <span className="title">Lista de Ferramentas Vazia</span>
-                <span> Click no botão Add e adicione ferramentas</span>
-              </div>
-            ))}
+                <span className="toolTags">
+                  {toolList[0][idx].tags.map((item) => `#${item}  `)}
+                </span>
+              </li>
+            </ul>
+          ))
+        ) : (
+          <div className="empty">
+            <span className="title">Lista de Ferramentas Vazia</span>
+            <span> Click no botão Add e adicione ferramentas</span>
+          </div>
+        )}
       </ToolList>
     </Wrapper>
   );
 }
 
 export default ToolsList;
-//       )) : indice.map( (idx) => ( console.log(toolList),
-//       console.log(tools), console.log(idx), (
-//       <li key={tools[idx].id}>
-//         <span className="toolTitle">
-//           <a href={tools[idx].link}>{tools[idx].title}</a>
-//           <button
-//             type="button"
-//             onClick={() => removeTool(tools[idx].id)}
-//           >
-//             <FaTimes />
-//             remove
-//           </button>
-//         </span>
-//         <span className="toolDescription">
-//           {tools[idx].description}
-//         </span>
-
-//         <span className="toolTags">
-//           {tools[idx].tags.map((item) => `#${item}  `)}
-//         </span>
-//       </li>
-//       ) ) )}
-//     </ul>
-//   ))
-// )
