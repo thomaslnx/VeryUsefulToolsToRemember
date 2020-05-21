@@ -197,4 +197,10 @@ export const LightBoxWrapper = styled.div`
   }
 `;
 
-export const TagHighlighter = styled(Highlighter)``;
+export const TagHighlighter = styled(Highlighter)`
+  .tagHighlighted {
+    color: #fff;
+    font-weight: bold;
+    background: #f95e5a;
+  }
+`;

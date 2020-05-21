@@ -233,11 +233,10 @@ function ToolsList() {
                 <span className="toolTags">
                   {toolList[0][idx].tags.map((item) => (
                     <TagHighlighter
+                      highlightClassName="tagHighlighted"
                       activeIndex={1}
                       searchWords={[search]}
                       textToHighlight={`#${item}  `}
-                      color="#fff"
-                      font_weight="bold"
                     />
                   ))}
                 </span>
