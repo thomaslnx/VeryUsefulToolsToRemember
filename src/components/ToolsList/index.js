@@ -72,7 +72,6 @@ function ToolsList() {
 
   function handleCheck() {
     setCheck(!check);
-    return console.log(check);
   }
 
   /*
@@ -245,8 +244,54 @@ function ToolsList() {
             </ul>
           ))
         ) : search !== '' && check === false ? (
-          (console.log('dentro do ternario: ', check),
-          (<h1>Busca por nome da ferramenta</h1>))
+          toolList[0].map((item) => {
+            const titleLc = item.title.toLowerCase();
+            const searchLc = search.toLocaleLowerCase();
+
+            if (titleLc.includes(searchLc)) {
+              return (
+                <span className="toolTags">
+                  <ul>
+                    <li key={item.id}>
+                      <span className="toolTitle">
+                        <a href={item.link}>
+                          {
+                            <TagHighlighter
+                              highlightClassName="tagHighlighted"
+                              activeIndex={1}
+                              searchWords={[searchLc]}
+                              textToHighlight={item.title}
+                            />
+                          }
+                        </a>
+                        <button
+                          type="button"
+                          onClick={() => removeTool(item.id)}
+                        >
+                          <FaTimes />
+                          remove
+                        </button>
+                      </span>
+                      <span className="toolDescription">
+                        {item.description}
+                      </span>
+
+                      <span className="toolTags">
+                        {item.tags.map((item) => (
+                          <TagHighlighter
+                            highlightClassName="tagHighlighted"
+                            activeIndex={1}
+                            searchWords={[searchLc]}
+                            textToHighlight={`#${item}  `}
+                          />
+                        ))}
+                      </span>
+                    </li>
+                  </ul>
+                </span>
+              );
+            }
+          })
         ) : (
           <div className="empty">
             <span className="title">Lista de Ferramentas Vazia</span>
@@ -259,3 +304,6 @@ function ToolsList() {
 }
 
 export default ToolsList;
+
+// (console.log('dentro do ternario: ', check),
+// (<h1>Busca por nome da ferramenta</h1>))
