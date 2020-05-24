@@ -48,7 +48,7 @@
 
 `https://github.com/thomaslnx/VUTTR.git`
 
-**OBS:** uncomment the line 4, comment line 5 from api.js file located in services directory.
+**OBS:** To run locally please uncomment the line 4 and comment line 5 from api.js file located in services directory.
 
 **Inside project's directory, type:** `yarn`
 
