@@ -10,9 +10,7 @@
 
 <hr/>
 
-<span style="margin: auto; display: table;">
-<img src=".github/tagsearch.gif" width="700px">
-</span>
+<p align="center"><img src=".github/tagsearch.gif"/></p>
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
