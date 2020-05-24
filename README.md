@@ -1,8 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p style="font-size:40px" align="center"> VUTTR - Very Useful Tools to Remember</p>
 
-## Available Scripts
+<span align="center">
+  <img src=".github/index.png" width="100%">
+</span>
 
-In the project directory, you can run:
+[![Author](https://img.shields.io/badge/Author-Marcos%20Moura-blue)](https://github.com/thomaslnx)
+[![Stars](https://img.shields.io/github/stars/thomaslnx/VUTTR)](https://github.com/thomaslnx)
+[![Languages](https://img.shields.io/github/languages/count/thomaslnx/VUTTR)](https://github.com/thomaslnx)
+
+<hr/>
 
 ### `yarn start`
 
