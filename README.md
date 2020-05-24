@@ -40,12 +40,24 @@
 
 # :wrench: How to Install
 
-**You'll need have installed the yarn on yout computer before you clone the repository**
-
-`https://github.com/thomaslnx/VUTTR.git`
+**You'll need have installed the yarn and JSON-server on your computer before you clone the repository**
 
 **Then proceed to install project dependencies**
 
-- Inside project's directory, type:
+- FrontEnd
 
-`yarn`
+`https://github.com/thomaslnx/VUTTR.git`
+
+**OBS:** uncomment the line 4, comment line 5 from api.js file located in services directory.
+
+**Inside project's directory, type:** `yarn`
+
+- BackEnd File
+
+`https://github.com/thomaslnx/vuttrfakebackend.git`
+
+**Inside project's directory, type:** `json-server db-1575461292063.json`
+
+# :computer: Try Live
+
+Feel free to try the live sample of vuttr app hosted on Netlify: https://thomaslnx-vuttr.netlify.app/
