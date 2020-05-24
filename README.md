@@ -11,9 +11,9 @@
 <br/>
 <br/>
 
-<p align="center"><img src=".github/tagsearch.gif" width="400px"/></p>
-<p align="center"><img src=".github/namesearch.gif" width="400px"/></p>
-<p align="center"><img src=".github/includeexclude.gif" width="400px"/></p>
+<p align="center"><img src=".github/tagsearch.gif" width="500px"/></p>
+<p align="center"><img src=".github/namesearch.gif" width="500px"/></p>
+<p align="center"><img src=".github/includeexclude.gif" width="500px"/></p>
 
 <br/>
 <br/>
