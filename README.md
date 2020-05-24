@@ -1,4 +1,4 @@
-<p style="font-size:40px" align="center"> VUTTR - Very Useful Tools to Remember</p>
+# VUTTR - Very Useful Tools to Remember
 
 <span align="center">
   <img src=".github/index.png" width="100%">
