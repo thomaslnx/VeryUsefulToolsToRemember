@@ -61,3 +61,5 @@
 # :computer: Try Live
 
 Feel free to try the live sample of vuttr app hosted on Netlify: https://thomaslnx-vuttr.netlify.app/
+
+Made with :heartbeat: by [Marcos Moura](https://github.com/thomaslnx)
