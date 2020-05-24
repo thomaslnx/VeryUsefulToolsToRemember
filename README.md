@@ -39,3 +39,13 @@
 - Deployed with Netlify for front-end and Heroku for a fake back-end using JSON-Server;
 
 # :wrench: How to Install
+
+**You'll need have installed the yarn on yout computer before you clone the repository**
+
+`https://github.com/thomaslnx/VUTTR.git`
+
+**Then proceed to install project dependencies**
+
+- Inside project's directory, type:
+
+`yarn`
