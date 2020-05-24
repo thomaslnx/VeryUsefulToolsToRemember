@@ -24,3 +24,13 @@
 
 <p>VUTTR - stands Very Useful Tools to Remember and is a little react app for managment of develpment tools. As such tools that every developer has to have in your toolset. Such application was developed as requeriment for BossaBox's application process and although simple your porpose was to show the candidate skills. I hope you enjoy because was made as best as possible as long as my skills keep growning up.
 </p>
+
+# ⚙️ Applied Libraries and Technologies
+
+- ReactJS;
+- Axios;
+- Styled-Components;
+- React-Icons;
+- React-Highlight-Words;
+- ESlint;
+- Prettier;
