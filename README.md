@@ -34,3 +34,8 @@
 - React-Highlight-Words;
 - ESlint;
 - Prettier;
+
+- JSON-Server;
+- Deployed with Netlify for front-end and Heroku for a fake back-end using JSON-Server;
+
+# :wrench: How to Install
