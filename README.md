@@ -46,9 +46,7 @@
 
 - FrontEnd
 
-`https://github.com/thomaslnx/VUTTR.git`
-
-**OBS:** To run locally please uncomment the line 4 and comment line 5 from api.js file located in services directory.
+`https://github.com/thomaslnx/VeryUsefulToolsToRemeber.git`
 
 **Inside project's directory, type:** `yarn`
 
