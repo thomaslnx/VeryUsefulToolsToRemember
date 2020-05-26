@@ -43,7 +43,7 @@ function ToolsList() {
 
     const listTags = tagArray.map((tag) => tag.trim());
 
-    api.post('https://thomaslnx-vuttr.netlify.app/tools', {
+    api.post('/tools', {
       title: toolname.value,
       link: toollink.value,
       description: tooldescription.value,
