@@ -34,7 +34,8 @@
 - React-Highlight-Words;
 - ESlint;
 - Prettier;
-
+- React-Helmet for SEO;
+- Kaffeine for the app do not to sleep;
 - JSON-Server;
 - Deployed with Netlify for front-end and Heroku for a fake back-end using JSON-Server;
 
@@ -46,7 +47,9 @@
 
 - FrontEnd
 
-`https://github.com/thomaslnx/VeryUsefulToolsToRemeber.git`
+`https://github.com/thomaslnx/VUTTR.git`
+
+**OBS:** To run locally please uncomment the line 4 and comment line 5 from api.js file located in services directory.
 
 **Inside project's directory, type:** `yarn`
 
